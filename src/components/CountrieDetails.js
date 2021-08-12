@@ -15,7 +15,7 @@ state= {
         // console.log(cca3)
         let country = countries.find(eachCountry => eachCountry.cca3 === cca3)
         // console.log(country)
-
+        
         this.setState({
             country
         });
@@ -45,8 +45,16 @@ state= {
                   <td>Borders</td>
                   <td>
                     <ul>
-                      <li><Link href="/AND">Andorra</Link></li>
-                      <li><Link href="/BEL">Belgium</Link></li>
+                        {this.state.country.borders?.map((eachBorder) => {
+                            // console.log(eachBorder)
+                            let countryName = countries.find(eachCountry => eachBorder === eachCountry.cca3)
+                            console.log(countryName.name.common)
+                            return(
+                            <li key={eachBorder}>
+                                <Link to={`/country/${eachBorder}`}>{countryName.name.common} </Link>
+                            </li>
+                            )
+                        })}
                     </ul>
                   </td>
                 </tr>
