@@ -14,7 +14,7 @@ class CountriesList extends React.Component{
             <div className="list-group">
               {this.props.listofCountries.map(eachCountry=> {
                   return (
-              <Link className="list-group-item list-group-item-action" to="/country">
+              <Link className="list-group-item list-group-item-action" to={`/country/${eachCountry.cca3}`}>
               {eachCountry.flag} {eachCountry.name.common}
              </Link>
 
